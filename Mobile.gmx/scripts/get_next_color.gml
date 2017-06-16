@@ -45,7 +45,6 @@ switch(argument0) {
         g = 180;
         b = 70;
     break;     
-
 }
 
 out[0] = r;
