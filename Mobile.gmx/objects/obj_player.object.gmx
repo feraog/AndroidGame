@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>x = (room_width / 2);
+
+GOD_MODE = false;
 </string>
           </argument>
         </arguments>
@@ -54,10 +56,38 @@ minx = other.lenght + other.offset_from_mid;
 maxx = (other.width - other.lenght) + other.offset_from_mid;
 
 // Ded
+if (GOD_MODE == false) {
+
+
 if ((x - (sprite_width / 2) &lt; minx) || (x + (sprite_width / 2) &gt; maxx)) {
     show_message("Death Message!");
     game_restart();
 }
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>GOD_MODE = !GOD_MODE;
 </string>
           </argument>
         </arguments>
