@@ -28,15 +28,17 @@
             <string>/// Variables
 // Tweakable
 start_speed = 3;
-walls_per_gradient = 25;
+walls_per_gradient = 40;
 minus = 6;
+
+spawn_range = 130;
 
 // Other
 state = "SPAWN_CYCLE";
 
 wall_speed = start_speed;
 
-current_spawned = walls_per_gradient - minus - 1;
+current_spawned = 0;
 wall_height = 200;
 
 // Colors
@@ -52,13 +54,13 @@ b_step = calculate_step(b,  walls_per_gradient);
 
 current_color_index = 1;
 
-color_moving_up = false;
-
 // Spawn
 recent_spawn = instance_create(0, -wall_height, obj_wall);
 recent_spawn.vertical_speed = wall_speed;
         
 recent_spawn.cl = make_color_rgb(r + (r_step * (current_spawned)), g + (g_step * (current_spawned)), b + (b_step * (current_spawned)));
+
+previous_offset = 0;
 
 // Alarm
 alarm[0] = 30;
@@ -86,7 +88,7 @@ alarm[0] = 30;
 if (instance_number(obj_spawn) &gt; 1) {
     show_message("CRITICAL ERROR: MULTIPLE CONTROL UNITS");
     game_end();
-    }
+}
 </string>
           </argument>
         </arguments>
@@ -148,24 +150,23 @@ alarm[0] = 10;
         recent_spawn.cl = make_color_rgb(r + (r_step * (current_spawned)), g + (g_step * (current_spawned)), b + (b_step * (current_spawned)));
          
         // Random Offset
-        recent_spawn.offset_from_mid += irandom_range(-130, 130);
-        
-        if (color_moving_up == true) {
-            current_spawned += 1;
+        if (previous_offset &lt; 40 &amp;&amp; previous_offset &gt; -40 &amp;&amp; irandom(4) == 1) {
+            var random_direction = choose(1, -1);
+            random_offset = random_direction * (40 + irandom(spawn_range - 40));
+        } else {        
+            random_offset = irandom_range(-spawn_range, spawn_range);
         }
         
-        else if (color_moving_up == false) {
-            current_spawned -= 1;
-        }    
+        previous_offset = random_offset;  
+    
+        recent_spawn.offset_from_mid += random_offset;
         
-        if (color_moving_up == false &amp;&amp; current_spawned == 0) {
-            current_spawned = 0;
-            color_moving_up = true;
-        }
+        
+        current_spawned += 1;
         
         // Change Color (Notnow)
-        if (current_spawned &gt;= walls_per_gradient - minus &amp;&amp; color_moving_up == true) {
-            current_spawned = current_spawned - minus;
+        if (current_spawned &gt;= walls_per_gradient - minus) {
+            current_spawned = 0;
             
             wall_speed += 2;
             
@@ -174,8 +175,6 @@ alarm[0] = 10;
             }
             
             current_color_index += 1;
-            
-            color_moving_up = false
             
             if (current_color_index &gt; 3)
                 current_color_index = 1;
