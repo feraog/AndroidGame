@@ -146,6 +146,34 @@ alarm[0] = 10;
     rsy = recent_spawn.y;
 
     if (rsy &gt;= 0) {
+            // Change Color (Notnow)
+            if (current_spawned &gt;= walls_per_gradient - minus) {
+            current_spawned = 0;
+            
+            wall_speed += 2;
+            
+            with(obj_wall) {
+                vertical_speed += 2;
+            }
+            
+            // Switch color
+            current_color_index += 1;
+            
+            if (current_color_index &gt; number_of_colors)
+                current_color_index = 1;
+                
+            new_c = get_next_color(current_color_index);
+            
+            r = new_c[0];
+            g = new_c[1];
+            b = new_c[2];
+            
+            r_step = calculate_step(r, walls_per_gradient);
+            g_step = calculate_step(g, walls_per_gradient);
+            b_step = calculate_step(b, walls_per_gradient);
+        }
+    
+    
         recent_spawn = instance_create(0, rsy - wall_height + wall_speed, obj_wall);
         recent_spawn.vertical_speed = wall_speed;
         
@@ -165,32 +193,6 @@ alarm[0] = 10;
         
         
         current_spawned += 1;
-        
-        // Change Color (Notnow)
-        if (current_spawned &gt;= walls_per_gradient - minus) {
-            current_spawned = 1;
-            
-            wall_speed += 2;
-            
-            with(obj_wall) {
-                vertical_speed += 2;
-            }
-            
-            current_color_index += 1;
-            
-            if (current_color_index &gt; number_of_colors)
-                current_color_index = 1;
-                
-            new_c = get_next_color(current_color_index);
-            
-            r = new_c[0];
-            g = new_c[1];
-            b = new_c[2];
-            
-            r_step = calculate_step(r, walls_per_gradient);
-            g_step = calculate_step(g, walls_per_gradient);
-            b_step = calculate_step(b, walls_per_gradient);
-        }
     }
 }
 </string>
