@@ -55,7 +55,7 @@ maxx = (other.width - other.lenght) + other.offset_from_mid;
 
 // Ded
 if ((x - (sprite_width / 2) &lt; minx) || (x + (sprite_width / 2) &gt; maxx)) {
-    show_message("Death Message");
+    show_message("Death Message!");
     game_restart();
 }
 </string>
