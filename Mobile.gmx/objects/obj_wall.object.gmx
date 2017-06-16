@@ -132,7 +132,9 @@ if (y &gt; room_height) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>is_selected = false;
+            <string>if (is_selected == true) {
+
+is_selected = false;
 
 // Lock
 var lower_object;
@@ -145,6 +147,11 @@ if (lower_object != noone) {
     if (diff &lt;= tap_lock) {
         offset_from_mid = lower_object.offset_from_mid
     }
+}
+
+
+
+
 }
 </string>
           </argument>
