@@ -146,7 +146,7 @@ alarm[0] = 10;
     rsy = recent_spawn.y;
 
     if (rsy &gt;= 0) {
-        recent_spawn = instance_create(0, rsy -wall_height + wall_speed, obj_wall);
+        recent_spawn = instance_create(0, rsy - wall_height + wall_speed, obj_wall);
         recent_spawn.vertical_speed = wall_speed;
         
         recent_spawn.cl = make_color_rgb(r + (r_step * (current_spawned)), g + (g_step * (current_spawned)), b + (b_step * (current_spawned)));
