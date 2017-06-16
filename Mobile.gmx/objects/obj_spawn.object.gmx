@@ -28,7 +28,7 @@
             <string>/// Variables
 // Tweakable
 start_speed = 3;
-walls_per_gradient = 40;
+walls_per_gradient = 30;
 minus = 6;
 
 spawn_range = 130;

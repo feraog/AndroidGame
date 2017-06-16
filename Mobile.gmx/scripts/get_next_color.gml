@@ -6,19 +6,19 @@ var r, g, b;
 
 switch(argument0) {
     case 1: // Red
-        r = 95;
-        g = 5;
-        b = 4;
+        r = 21;
+        g = 134;
+        b = 115;
     break;
     case 2: // Blue
-        r = 12;
-        g = 12;
-        b = 79;
+        r = 60;
+        g = 180;
+        b = 60;
     break;
     case 3:
-        r = 14;
-        g = 90;
-        b = 14;
+        r = 246;
+        g = 191;
+        b = 38;
     break;
     
 
