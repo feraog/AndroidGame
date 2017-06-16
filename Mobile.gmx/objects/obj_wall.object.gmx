@@ -31,6 +31,8 @@ tap_start = 0;
 
 cl = c_white;
 
+tap_lock = 4;
+
 // Spacing
 spacing = 126;
 
@@ -131,6 +133,19 @@ if (y &gt; room_height) {
           <argument>
             <kind>1</kind>
             <string>is_selected = false;
+
+// Lock
+var lower_object;
+
+lower_object = instance_place(x + 1, y + 3, obj_wall);
+
+if (lower_object != noone) {
+    var diff = abs(lower_object.offset_from_mid - offset_from_mid);
+    
+    if (diff &lt;= tap_lock) {
+        offset_from_mid = lower_object.offset_from_mid
+    }
+}
 </string>
           </argument>
         </arguments>
