@@ -40,13 +40,15 @@ current_spawned = walls_per_gradient - minus - 1;
 wall_height = 200;
 
 // Colors
-r = 90;
-g = 5;
-b = 4;
+n = get_next_color(1);
 
-r_step = (255 - r) / walls_per_gradient;
-g_step = (255 - g) / walls_per_gradient;
-b_step = (255 - b) / walls_per_gradient;
+r = n[0];
+g = n[1];
+b = n[2];
+
+r_step = calculate_step(r, walls_per_gradient);
+g_step = calculate_step(g, walls_per_gradient);
+b_step = calculate_step(b,  walls_per_gradient);
 
 current_color_index = 1;
 
