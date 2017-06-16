@@ -42,7 +42,7 @@ current_spawned = 0;
 wall_height = 200;
 
 // Colors
-number_of_colors = 3;
+number_of_colors = 5;
 
 n = get_next_color(1);
 
