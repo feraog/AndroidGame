@@ -166,7 +166,7 @@ alarm[0] = 10;
         
         // Change Color (Notnow)
         if (current_spawned &gt;= walls_per_gradient - minus) {
-            current_spawned = 0;
+            current_spawned = 1;
             
             wall_speed += 2;
             

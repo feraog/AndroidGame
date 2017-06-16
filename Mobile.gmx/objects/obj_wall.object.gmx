@@ -31,7 +31,7 @@ tap_start = 0;
 
 cl = c_white;
 
-tap_lock = 4;
+tap_lock = 12;
 
 // Spacing
 spacing = 126;
