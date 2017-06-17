@@ -32,12 +32,19 @@
 =======
     <objects name="Game">
       <object>objects\obj_spawn</object>
+      <object>objects\obj_color_switcher</object>
       <object>objects\obj_player</object>
       <object>objects\obj_wall</object>
       <objects name="Particles">
         <object>objects\p_player_trail</object>
       </objects>
+<<<<<<< HEAD
 >>>>>>> 5dfcc553b57b846712c862eb67a2405245991003
+=======
+      <objects name="Juice">
+        <object>objects\obj_screenshake</object>
+      </objects>
+>>>>>>> 4b31cc22626bc47ab5a76ad15c65a6c51dacbe93
     </objects>
   </objects>
   <rooms name="rooms">

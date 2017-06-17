@@ -171,6 +171,16 @@ alarm[0] = 10;
             r_step = calculate_step(r, walls_per_gradient);
             g_step = calculate_step(g, walls_per_gradient);
             b_step = calculate_step(b, walls_per_gradient);
+            
+            // Create color switcher
+            var cs;
+            cs = instance_create(300, room_height, obj_color_switcher);
+            cs.r = r;
+            cs.g = g;
+            cs.b = b;
+            cs.r_step = r_step;
+            cs.b_step = b_step;
+            cs.g_step = g_step;
         }
     
     

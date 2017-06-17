@@ -48,6 +48,9 @@ max_offset = (width / 2) - (spacing / 2);
 vertical_speed = 3;
 
 caused_spawn = false;
+
+// Color change settings
+already_changed = false;
 </string>
           </argument>
         </arguments>
