@@ -134,20 +134,20 @@ if (y &gt; room_height) {
             <kind>1</kind>
             <string>if (is_selected == true) {
 
-is_selected = false;
+    is_selected = false;
 
-// Lock
-var lower_object;
+    // Lock
+    var lower_object;
 
-lower_object = instance_place(x + 1, y + 3, obj_wall);
+    lower_object = instance_place(x + 1, y + 3, obj_wall);
 
-if (lower_object != noone) {
-    var diff = abs(lower_object.offset_from_mid - offset_from_mid);
+    if (lower_object != noone) {
+        var diff = abs(lower_object.offset_from_mid - offset_from_mid);
     
-    if (diff &lt;= tap_lock) {
-        offset_from_mid = lower_object.offset_from_mid
+        if (diff &lt;= tap_lock) {
+            offset_from_mid = lower_object.offset_from_mid
+        }
     }
-}
 
 
 
@@ -204,9 +204,6 @@ tap_start = mouse_x;
 
 draw_rectangle(0, y, lenght + offset_from_mid, y + 200, false);
 draw_rectangle((width - lenght) + offset_from_mid, y, width, y + 200, false);
-
-draw_set_color(c_white)
-draw_text(x + 10, y + 10, offset_from_mid);
 </string>
           </argument>
         </arguments>
