@@ -18,10 +18,14 @@
   <objects name="objects">
     <objects name="Game">
       <object>objects\obj_spawn</object>
+      <object>objects\obj_color_switcher</object>
       <object>objects\obj_player</object>
       <object>objects\obj_wall</object>
       <objects name="Particles">
         <object>objects\p_player_trail</object>
+      </objects>
+      <objects name="Juice">
+        <object>objects\obj_screenshake</object>
       </objects>
     </objects>
   </objects>
