@@ -34,7 +34,7 @@ cl = c_white;
 tap_lock = 12;
 
 // Spacing
-spacing = 126;
+spacing = 200;
 
 width = room_width;
 lenght = (width / 2) - spacing;
@@ -123,6 +123,7 @@ draw_rectangle(0, y, lenght + offset_from_mid, y + 200, false);
             <string>y += vertical_speed;
 
 if (y &gt; room_height) {
+    score += 1;
     instance_destroy();
 }
 </string>

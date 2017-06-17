@@ -9,25 +9,35 @@
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_collision</sprite>
+    <sprite>sprites\spr_tooltip</sprite>
+    <sprite>sprites\spr_tt_swipe</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\calculate_step.gml</script>
     <script>scripts\get_next_color.gml</script>
+    <script>scripts\draw_text_outline.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+  </fonts>
   <objects name="objects">
     <objects name="Game">
       <object>objects\obj_spawn</object>
-      <object>objects\obj_color_switcher</object>
       <object>objects\obj_player</object>
       <object>objects\obj_collider</object>
+      <object>objects\obj_color_switcher</object>
+      <object>objects\obj_ui</object>
       <object>objects\obj_wall</object>
       <objects name="Particles">
         <object>objects\p_player_trail</object>
       </objects>
       <objects name="Juice">
         <object>objects\obj_screenshake</object>
+      </objects>
+      <objects name="Tooltips">
+        <object>objects\tt_swipe</object>
       </objects>
     </objects>
   </objects>

@@ -53,6 +53,8 @@
   <instances>
     <instance objName="obj_player" x="320" y="1027" name="inst_D19C212F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawn" x="64" y="102" name="inst_4A6A5A7D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ui" x="192" y="183" name="inst_243CC847" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="tt_swipe" x="224" y="2" name="inst_7E882577" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

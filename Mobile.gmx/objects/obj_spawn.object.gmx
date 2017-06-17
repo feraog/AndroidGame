@@ -27,11 +27,16 @@
             <kind>1</kind>
             <string>/// Variables
 // Tweakable
-start_speed = 3;
+start_speed = 8;
 walls_per_gradient = 28;
 minus = 4;
 
-spawn_range = 130;
+spawn_range = 140;
+
+spacing = 160;
+min_spacing = 110;
+
+max_speed = 36;
 
 // Other
 state = "SPAWN_CYCLE";
@@ -59,10 +64,14 @@ current_color_index = 1;
 // Spawn
 recent_spawn = instance_create(0, -wall_height*2, obj_wall);
 recent_spawn.vertical_speed = wall_speed;
+recent_spawn.spacing = spacing;
+recent_spawn.lenght = (recent_spawn.width / 2) - recent_spawn.spacing;
+recent_spawn.max_offset = (recent_spawn.width / 2) - (recent_spawn.spacing / 2);
         
 recent_spawn.cl = make_color_rgb(r + (r_step * (current_spawned)), g + (g_step * (current_spawned)), b + (b_step * (current_spawned)));
 
 previous_offset = 0;
+intervention_counter = 3;
 
 // Alarm
 alarm[0] = 30;
@@ -113,10 +122,17 @@ if (instance_number(obj_spawn) &gt; 1) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>wall_speed += 0.1;
+            <string>if (wall_speed &lt; max_speed) {
+    wall_speed += 0.025;
+}
+
+
+if (spacing &gt; min_spacing) {
+    spacing -= 0.086;
+}
 
 with(obj_wall) {
-    vertical_speed += 0.1;
+    vertical_speed += 0.025;
 }
 
 alarm[0] = 10;
@@ -150,10 +166,20 @@ alarm[0] = 10;
             if (current_spawned &gt;= walls_per_gradient - minus) {
             current_spawned = 0;
             
-            wall_speed += 2;
+            if (wall_speed &lt; max_speed) {
             
-            with(obj_wall) {
-                vertical_speed += 2;
+                wall_speed += 2;
+            
+                with(obj_wall) {
+                    vertical_speed += 2;
+                }
+            
+                if (spacing &gt; min_spacing) {
+                    spacing -= 2;
+                } else {
+                    spacing = min_spacing;
+                }
+            
             }
             
             // Switch color
@@ -186,15 +212,20 @@ alarm[0] = 10;
     
         recent_spawn = instance_create(0, rsy - (wall_height) + wall_speed, obj_wall);
         recent_spawn.vertical_speed = wall_speed;
+        recent_spawn.spacing = spacing;
+        recent_spawn.lenght = (recent_spawn.width / 2) - recent_spawn.spacing;
+        recent_spawn.max_offset = (recent_spawn.width / 2) - (recent_spawn.spacing / 2);
         
         recent_spawn.cl = make_color_rgb(r + (r_step * (current_spawned)), g + (g_step * (current_spawned)), b + (b_step * (current_spawned)));
          
         // Random Offset
-        if (previous_offset &lt; 40 &amp;&amp; previous_offset &gt; -40 &amp;&amp; irandom(4) == 1) {
+        if (previous_offset &lt; 40 &amp;&amp; previous_offset &gt; -40 &amp;&amp; irandom(intervention_counter) == 1) {
             var random_direction = choose(1, -1);
             random_offset = random_direction * (40 + irandom(spawn_range - 40));
+            intervention_counter++;
         } else {        
             random_offset = irandom_range(-spawn_range, spawn_range);
+            intervention_counter = 3;
         }
         
         previous_offset = random_offset;  
