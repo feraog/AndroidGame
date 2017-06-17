@@ -6,9 +6,9 @@ var r, g, b;
 
 switch(argument0) {
     case 1: // Blue
-        r = 0;
-        g = 150;
-        b = 220;
+        r = 11;
+        g = 60;
+        b = 249;
     break;
     case 2: // Green
         r = 60;
@@ -26,14 +26,14 @@ switch(argument0) {
         b = 38;
     break;
     case 5: //  Pink
-        r = 209;
-        g = 59;
-        b = 186;
+        r = 190;
+        g = 0;
+        b = 120;
     break;   
     case 6: //  Orange
-        r = 220;
-        g = 60;
-        b = 0;
+        r = 249;
+        g = 82;
+        b = 11;
     break;   
     case 7: //  Purple
         r = 120;

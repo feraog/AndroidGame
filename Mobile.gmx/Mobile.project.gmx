@@ -8,11 +8,6 @@
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_player</sprite>
-    <sprites name="MenuSprites">
-      <sprite>sprites\spr_playgame</sprite>
-      <sprite>sprites\spr_ItemShop</sprite>
-      <sprite>sprites\spr_LeaderBoards</sprite>
-    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -21,15 +16,6 @@
     <script>scripts\get_next_color.gml</script>
   </scripts>
   <objects name="objects">
-<<<<<<< HEAD
-    <object>objects\obj_spawn</object>
-    <object>objects\obj_player</object>
-    <object>objects\obj_wall</object>
-    <objects name="MenuObjects">
-      <object>objects\obj_playgame</object>
-      <object>objects\obj_ItemShop</object>
-      <object>objects\obj_LeaderBoards</object>
-=======
     <objects name="Game">
       <object>objects\obj_spawn</object>
       <object>objects\obj_color_switcher</object>
@@ -38,19 +24,12 @@
       <objects name="Particles">
         <object>objects\p_player_trail</object>
       </objects>
-<<<<<<< HEAD
->>>>>>> 5dfcc553b57b846712c862eb67a2405245991003
-=======
       <objects name="Juice">
         <object>objects\obj_screenshake</object>
       </objects>
->>>>>>> 4b31cc22626bc47ab5a76ad15c65a6c51dacbe93
     </objects>
   </objects>
   <rooms name="rooms">
-    <rooms name="Menu">
-      <room>rooms\Menu_RM</room>
-    </rooms>
     <room>rooms\Game_RM</room>
   </rooms>
   <help>
