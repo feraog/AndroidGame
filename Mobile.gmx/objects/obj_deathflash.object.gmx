@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,15 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>score = 0;
+            <string>brighter = 1;
 
-global.alive = true;
+a = 0;
+
+aspeed = 0.284;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,14 +52,42 @@ global.alive = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(font0);
-draw_set_color(c_white);
+            <string>a += aspeed * brighter;
 
-if (score == 100) {
-    draw_set_color(make_color_rgb(245, 45, 10));
+if (a &gt;=1) {
+    a = 1;
+    brighter = -1;
 }
 
-draw_text_outline(345, 10, score);
+if (a &lt; 0) {
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_color(c_white);
+draw_set_alpha(a);
+draw_rectangle(0, 0, room_width, room_height, false);
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>

@@ -35,9 +35,11 @@
       </objects>
       <objects name="Juice">
         <object>objects\obj_screenshake</object>
+        <object>objects\obj_deathflash</object>
       </objects>
       <objects name="Tooltips">
         <object>objects\tt_swipe</object>
+        <object>objects\tt_respawn</object>
       </objects>
     </objects>
   </objects>

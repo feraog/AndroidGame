@@ -214,9 +214,15 @@ if (y &gt; room_height) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>is_selected = true;
+            <string>if (global.alive == true) {
 
-tap_start = mouse_x;
+    is_selected = true;
+
+    tap_start = mouse_x;
+
+} else {
+    is_selected = false;
+}
 </string>
           </argument>
         </arguments>

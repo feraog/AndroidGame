@@ -57,14 +57,17 @@ color = c_white;
           <argument>
             <kind>1</kind>
             <string>// Spawn trail
-t += 0.1;
 
-var i;
+if (global.alive == true) {
+    t += 0.1;
 
-i = instance_create(x, y, p_player_trail);
-i.color = color;
-//i.hspeed = sin(t);
-alarm[0] = 3;
+    var i;
+
+    i = instance_create(x, y, p_player_trail);
+    i.color = color;
+    //i.hspeed = sin(t);
+    alarm[0] = 3;
+}
 </string>
           </argument>
         </arguments>
