@@ -29,6 +29,7 @@
     global.alive = false;
     
     instance_create(0,0, obj_deathflash);
+    instance_create(0, 0, tt_respawn);
     
     obj_spawn.wall_speed = 0;
     
