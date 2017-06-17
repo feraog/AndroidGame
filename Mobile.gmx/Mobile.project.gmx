@@ -21,6 +21,7 @@
     <script>scripts\get_next_color.gml</script>
   </scripts>
   <objects name="objects">
+<<<<<<< HEAD
     <object>objects\obj_spawn</object>
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
@@ -28,6 +29,15 @@
       <object>objects\obj_playgame</object>
       <object>objects\obj_ItemShop</object>
       <object>objects\obj_LeaderBoards</object>
+=======
+    <objects name="Game">
+      <object>objects\obj_spawn</object>
+      <object>objects\obj_player</object>
+      <object>objects\obj_wall</object>
+      <objects name="Particles">
+        <object>objects\p_player_trail</object>
+      </objects>
+>>>>>>> 5dfcc553b57b846712c862eb67a2405245991003
     </objects>
   </objects>
   <rooms name="rooms">

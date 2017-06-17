@@ -3,7 +3,7 @@
   <spriteName>spr_player</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>2</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,23 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = (room_width / 2);
+            <string>image_angle = 45;
 
-image_angle = 45;
+vspeed = 7;
 
-GOD_MODE = false
-
-alarm[0] = 1;
-t = 0;
-
-// Color
 color = c_white;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -58,76 +52,13 @@ color = c_white;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Spawn trail
-t += 0.1;
+            <string>image_xscale -= 0.038;
+image_yscale -= 0.038;
 
-var i;
+image_alpha -= 0.048;
 
-i = instance_create(x, y, p_player_trail);
-i.color = color;
-//i.hspeed = sin(t);
-alarm[0] = 3;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_wall">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>var minx, maxx;
-
-minx = other.lenght + other.offset_from_mid;
-maxx = (other.width - other.lenght) + other.offset_from_mid;
-
-// Ded
-if (GOD_MODE == false) {
-
-if ((x - (sprite_width / 2) &lt; minx) || (x + (sprite_width / 2) &gt; maxx)) {
-    show_message("Death Message!");
-    game_restart();
-}
-
-color = other.cl;
-
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>GOD_MODE = !GOD_MODE;
+if (image_xscale &lt;= 0)
+    instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -150,7 +81,7 @@ color = other.cl;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(spr_player, 0, x, y, 1, 1, image_angle, color, 1);
+            <string>draw_sprite_ext(spr_player, 0, x, y, image_xscale, image_yscale, image_angle, color, image_alpha);
 </string>
           </argument>
         </arguments>
