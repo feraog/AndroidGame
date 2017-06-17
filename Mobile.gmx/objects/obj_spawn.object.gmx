@@ -29,7 +29,7 @@
 // Tweakable
 start_speed = 3;
 walls_per_gradient = 28;
-minus = 6;
+minus = 4;
 
 spawn_range = 130;
 
@@ -57,7 +57,7 @@ b_step = calculate_step(b,  walls_per_gradient);
 current_color_index = 1;
 
 // Spawn
-recent_spawn = instance_create(0, -wall_height, obj_wall);
+recent_spawn = instance_create(0, -wall_height*2, obj_wall);
 recent_spawn.vertical_speed = wall_speed;
         
 recent_spawn.cl = make_color_rgb(r + (r_step * (current_spawned)), g + (g_step * (current_spawned)), b + (b_step * (current_spawned)));
@@ -145,7 +145,7 @@ alarm[0] = 10;
             <string>if (state == "SPAWN_CYCLE") {
     rsy = recent_spawn.y;
 
-    if (rsy &gt;= 0) {
+    if (rsy &gt;= (-wall_height)) {
             // Change Color (Notnow)
             if (current_spawned &gt;= walls_per_gradient - minus) {
             current_spawned = 0;
@@ -184,7 +184,7 @@ alarm[0] = 10;
         }
     
     
-        recent_spawn = instance_create(0, rsy - wall_height + wall_speed, obj_wall);
+        recent_spawn = instance_create(0, rsy - (wall_height) + wall_speed, obj_wall);
         recent_spawn.vertical_speed = wall_speed;
         
         recent_spawn.cl = make_color_rgb(r + (r_step * (current_spawned)), g + (g_step * (current_spawned)), b + (b_step * (current_spawned)));
