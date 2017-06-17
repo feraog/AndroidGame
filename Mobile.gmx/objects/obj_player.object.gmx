@@ -27,8 +27,6 @@
             <kind>1</kind>
             <string>x = (room_width / 2);
 
-image_angle = 45;
-
 GOD_MODE = false
 
 alarm[0] = 1;
@@ -67,44 +65,6 @@ i = instance_create(x, y, p_player_trail);
 i.color = color;
 //i.hspeed = sin(t);
 alarm[0] = 3;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_wall">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>var minx, maxx;
-
-minx = other.lenght + other.offset_from_mid;
-maxx = (other.width - other.lenght) + other.offset_from_mid;
-
-// Ded
-if (GOD_MODE == false) {
-
-if ((x - (sprite_width / 2) &lt; minx) || (x + (sprite_width / 2) &gt; maxx)) {
-    show_message("Death Message!");
-    game_restart();
-}
-
-color = other.cl;
-
-}
 </string>
           </argument>
         </arguments>

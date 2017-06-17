@@ -51,6 +51,9 @@ caused_spawn = false;
 
 // Color change settings
 already_changed = false;
+
+left = instance_create(x, y, obj_collider);
+right = instance_create(x, y, obj_collider);
 </string>
           </argument>
         </arguments>
@@ -88,6 +91,15 @@ already_changed = false;
         
     if (offset_from_mid &lt; -max_offset)
         offset_from_mid = -max_offset;
+        
+right.y = y + 1;
+left.y = y + 1;
+
+right.x = lenght + offset_from_mid - 500;
+left.x = (width - lenght) + offset_from_mid;
+
+
+draw_rectangle(0, y, lenght + offset_from_mid, y + 200, false);
 </string>
           </argument>
         </arguments>
@@ -113,6 +125,29 @@ already_changed = false;
 if (y &gt; room_height) {
     instance_destroy();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_player">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>other.color = cl;
 </string>
           </argument>
         </arguments>
