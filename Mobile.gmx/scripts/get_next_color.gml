@@ -10,40 +10,40 @@ switch(argument0) {
         g = 60;
         b = 249;
     break;
-    case 2: // Green
-        r = 60;
-        g = 145;
-        b = 60;
+    case 2: // Teal
+        r = 0;
+        g = 200;
+        b = 100;
     break;
-    case 3: // Yellow
+    case 3: // Green
+        r = 0;
+        g = 160;
+        b = 0;
+    break;
+        case 4: // Yellow
         r = 246;
         g = 191;
         b = 38;
     break;
-        case 4: // Red
+    case 5: //  Orange
         r = 246;
-        g = 38;
-        b = 38;
-    break;
-    case 5: //  Pink
-        r = 190;
-        g = 0;
-        b = 120;
-    break;   
-    case 6: //  Orange
-        r = 249;
         g = 82;
         b = 11;
     break;   
-    case 7: //  Purple
+    case 6: //  Red
+        r = 249;
+        g = 38;
+        b = 38;
+    break;   
+    case 7: //  Pink
+        r = 190;
+        g = 0;
+        b = 120;
+    break;      
+    case 8: //  Purple
         r = 120;
         g = 0;
         b = 220;
-    break;      
-    case 8: //  Teal
-        r = 0;
-        g = 180;
-        b = 70;
     break;     
 }
 
