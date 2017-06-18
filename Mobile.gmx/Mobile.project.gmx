@@ -11,6 +11,7 @@
     <sprite>sprites\spr_collision</sprite>
     <sprite>sprites\spr_tooltip</sprite>
     <sprite>sprites\spr_tt_swipe</sprite>
+    <sprite>sprites\spr_triangle</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -32,6 +33,7 @@
       <object>objects\obj_wall</object>
       <objects name="Particles">
         <object>objects\p_player_trail</object>
+        <object>objects\p_player_death</object>
       </objects>
       <objects name="Juice">
         <object>objects\obj_screenshake</object>

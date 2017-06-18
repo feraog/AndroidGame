@@ -124,7 +124,7 @@ draw_rectangle(0, y, lenght + offset_from_mid, y + 200, false);
             <kind>1</kind>
             <string>y += vertical_speed;
 
-if (y &gt; room_height - 180 &amp;&amp; gave_score == false) {
+if (y &gt; room_height - 220 &amp;&amp; gave_score == false) {
     score += 1;
     gave_score = true;
 }
