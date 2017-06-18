@@ -249,6 +249,14 @@ if (y &gt; room_height) {
 
 draw_rectangle(0, y, lenght + offset_from_mid, y + 200, false);
 draw_rectangle((width - lenght) + offset_from_mid, y, width, y + 200, false);
+
+if (is_selected == true) {
+    draw_set_color(c_white);
+    draw_set_alpha(0.2);
+    draw_rectangle(0, y, lenght + offset_from_mid, y + 200, false);
+    draw_rectangle((width - lenght) + offset_from_mid, y, width, y + 200, false);
+    draw_set_alpha(1);
+}
 </string>
           </argument>
         </arguments>

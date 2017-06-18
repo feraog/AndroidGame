@@ -57,7 +57,7 @@ if (score == 100) {
     draw_set_color(make_color_rgb(245, 45, 10));
 }
 
-draw_text_outline(345, 10, score);
+draw_text_outline(320, 24, score);
 </string>
           </argument>
         </arguments>
