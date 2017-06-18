@@ -57,7 +57,23 @@ if (score == 100) {
     draw_set_color(make_color_rgb(245, 45, 10));
 }
 
-draw_text_outline(320, 24, score);
+// Center text
+offset_t = 0;
+
+if (score &gt; 9) {
+    offset_t -= 16;
+}
+
+if (score &gt; 99) {
+    offset_t -= 16;
+}
+
+if (score &gt; 999) {
+    offset_t -= 16;
+}
+
+// Draw score
+draw_text_outline(329 + offset_t, 24, score);
 </string>
           </argument>
         </arguments>

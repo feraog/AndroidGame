@@ -54,6 +54,8 @@ already_changed = false;
 
 left = instance_create(x, y, obj_collider);
 right = instance_create(x, y, obj_collider);
+
+gave_score = false;
 </string>
           </argument>
         </arguments>
@@ -76,7 +78,7 @@ right = instance_create(x, y, obj_collider);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (is_selected == true) {
+            <string>if (is_selected == true &amp;&amp; global.alive == true) {
     var dif;
 
     dif = mouse_x - tap_start;
@@ -122,8 +124,12 @@ draw_rectangle(0, y, lenght + offset_from_mid, y + 200, false);
             <kind>1</kind>
             <string>y += vertical_speed;
 
-if (y &gt; room_height) {
+if (y &gt; room_height - 180 &amp;&amp; gave_score == false) {
     score += 1;
+    gave_score = true;
+}
+
+if (y &gt; room_height) {
     instance_destroy();
 }
 </string>
