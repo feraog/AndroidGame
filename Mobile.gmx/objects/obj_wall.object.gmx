@@ -83,6 +83,8 @@ gave_score = false;
 
     dif = mouse_x - tap_start;
     
+    dif = clamp(dif, -130, 130);
+    
     offset_from_mid += (dif);
     
     tap_start = mouse_x;

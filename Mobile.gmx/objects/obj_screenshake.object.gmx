@@ -61,6 +61,9 @@ t2 = 0;
             <string>t += shake_speed;
 t2 = t;
 
+view_xview[0] = sin(t) * shake_amount;
+view_yview[0] = cos(t2) * shake_amount;
+
 if (t &gt; calc_shake_t) {
     view_xview[0] = 0;
     view_yview[0] = 0;
@@ -68,8 +71,7 @@ if (t &gt; calc_shake_t) {
 }
 
 
-view_xview[0] = sin(t) * shake_amount;
-view_yview[0] = cos(t2) * shake_amount;
+
 </string>
           </argument>
         </arguments>

@@ -75,6 +75,9 @@ intervention_counter = 3;
 
 // Alarm
 alarm[0] = 30;
+
+// Random
+random_set_seed(current_time);
 </string>
           </argument>
         </arguments>
