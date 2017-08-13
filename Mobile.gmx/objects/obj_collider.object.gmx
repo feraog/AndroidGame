@@ -31,6 +31,7 @@
     instance_create(0, 0, obj_deathflash);
     instance_create(0, 0, obj_screenshake);
     instance_create(0, 0, tt_respawn);
+    audio_play_sound(snd_death,0,false);
     
     obj_spawn.wall_speed = 0;
     
