@@ -17,6 +17,13 @@
     <sprite>sprites\spr_tt_swipe</sprite>
     <sprite>sprites\spr_triangle</sprite>
     <sprite>sprites\spr_replay</sprite>
+    <sprites name="UI">
+      <sprite>sprites\spr_ui_play</sprite>
+      <sprite>sprites\spr_ui_name</sprite>
+      <sprite>sprites\spr_ui_twitter</sprite>
+      <sprite>sprites\spr_ui_trophy</sprite>
+      <sprite>sprites\spr_ui_middle</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -50,8 +57,16 @@
         <object>objects\tt_respawn</object>
       </objects>
     </objects>
+    <objects name="UI">
+      <object>objects\obj_ui_name</object>
+      <object>objects\obj_ui_twitter</object>
+      <object>objects\obj_ui_trophy</object>
+      <object>objects\obj_ui_play</object>
+      <object>objects\obj_ui_middle</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\Menu_RM</room>
     <room>rooms\Game_RM</room>
   </rooms>
   <help>
