@@ -28,12 +28,25 @@
             <string>score = 0;
 
 global.alive = true;
+
+current_highscore = 0;
+
+if file_exists("data.ini") {
+
+    ini_open("data.ini")
+    current_highscore = (ini_read_real("Mobile", "LocalHS", 0))
+    ini_close()
+
+}
+
+registered_deathstate = false;
+replay_rotation = 0;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,8 +63,42 @@ global.alive = true;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>if (registered_deathstate == false &amp;&amp; global.alive == false) {
+    registered_deathstate = true;
+    
+    if (score &gt; current_highscore) {
+        ini_open("data.ini");
+        ini_write_real("Mobile", "LocalHS", score);
+        ini_close();
+    }
+    
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>other</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>draw_set_font(font0);
 draw_set_color(c_white);
+
+if (global.alive == true) {
 
 if (score == 100) {
     draw_set_color(make_color_rgb(245, 45, 10));
@@ -74,6 +121,53 @@ if (score &gt; 999) {
 
 // Draw score
 draw_text_outline(329 + offset_t, 24, score);
+
+} else {
+
+// Center text
+offset_t = 0;
+
+if (score &gt; 9) {
+    offset_t -= 16;
+}
+
+if (score &gt; 99) {
+    offset_t -= 16;
+}
+
+if (score &gt; 999) {
+    offset_t -= 16;
+}
+
+// Draw score
+draw_set_font(font_s);
+draw_text_outline(121, 200, "YOUR SCORE");
+draw_set_font(font0);
+draw_text_outline(329 + offset_t, 290, score);
+
+// Center text
+offset_t = 0;
+
+if (current_highscore &gt; 9) {
+    offset_t -= 16;
+}
+
+if (current_highscore &gt; 99) {
+    offset_t -= 16;
+}
+
+if (current_highscore &gt; 999) {
+    offset_t -= 16;
+}
+
+draw_set_font(font_s);
+draw_text_outline(160, 400, "HIGHSCORE");
+draw_set_font(font0);
+draw_text_outline(329 + offset_t, 490, current_highscore);
+
+draw_sprite_ext(spr_replay, 0, room_width/2, 770, 1, 1, replay_rotation, c_white, 1);
+replay_rotation -= 0.1;
+}
 </string>
           </argument>
         </arguments>
